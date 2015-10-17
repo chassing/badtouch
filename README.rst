@@ -11,7 +11,9 @@ A friendly python library for the `Bose SoundTouch (R) API <http://products.bose
 Installation
 ------------
 
-To install badtouch python library, simply: ::
+To install badtouch python library, simply:
+
+.. code-block:: shell
 
     pip install badtouch
 
@@ -22,7 +24,10 @@ To install badtouch python library, simply: ::
 Quick Start
 -----------
 
-Connect to your Bose SoundTouch (R) device and retrieve basic device information: ::
+Connect to your Bose SoundTouch (R) device and retrieve basic device information:
+
+
+.. code-block:: python
 
     from badtouch import BadTouch
 
