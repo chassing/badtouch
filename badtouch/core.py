@@ -29,5 +29,13 @@ class BadTouch(object):
     def presets(self):
         return self._http.get("/presets")["presets"]["preset"]
 
+    @property
+    def volume(self):
+        return self._http.get("/volume")["volume"]
+
+    @volume.setter
+    def volume(self, vol):
+        self._http.post("/volume", data="<volume>{}</volume>".format(vol))
+
     def select_key(self, key):
         return self.key.send_key(key)

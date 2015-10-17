@@ -68,3 +68,23 @@ def test_presets(vcr, bt, key, expected):
         assert len(bt.presets) == 6
         p = bt.presets[0]
         assert get(p, key) == expected
+
+
+@pytest.mark.parametrize("key, expected", [
+    ("targetvolume", "30"),
+    ("actualvolume", "30"),
+    ("muteenabled", 'false'),
+])
+def test_volume_read(vcr, bt, key, expected):
+    with vcr.use_cassette("vol_read"):
+        assert get(bt.volume, key) == expected
+
+
+@pytest.mark.parametrize("vol", [
+    (0, "30"),
+    (50, "30"),
+    (100, 'false'),
+])
+def test_volume_write(vcr, bt, vol):
+    with vcr.use_cassette("vol_write"):
+        bt.volume = vol
