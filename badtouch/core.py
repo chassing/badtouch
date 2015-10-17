@@ -49,5 +49,9 @@ class BadTouch(object):
     def bass_capabilities(self):
         return self._http.get("/bassCapabilities")["bassCapabilities"]
 
+    @cached_property_with_ttl(ttl=60)
+    def sources(self):
+        return self._http.get("/sources")["sources"]["sourceItem"]
+
     def select_key(self, key):
         return self.key.send_key(key)

@@ -118,3 +118,13 @@ def test_bass_write(vcr, bt, level):
 def test_bass_capabilities(vcr, bt, key, expected):
     with vcr.use_cassette("bass_capabilities"):
         assert get(bt.bass_capabilities, key) == expected
+
+
+@pytest.mark.parametrize("key, expected", [
+    ("@source", "INTERNET_RADIO"),
+    ("@status", "READY"),
+])
+def test_sources(vcr, bt, key, expected):
+    with vcr.use_cassette("sources"):
+        assert len(bt.sources) == 2
+        assert get(bt.sources[0], key) == expected
