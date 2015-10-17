@@ -80,11 +80,41 @@ def test_volume_read(vcr, bt, key, expected):
         assert get(bt.volume, key) == expected
 
 
-@pytest.mark.parametrize("vol", [
-    (0, "30"),
-    (50, "30"),
-    (100, 'false'),
+@pytest.mark.parametrize("level", [
+    (0,),
+    (50,),
+    (100,),
 ])
-def test_volume_write(vcr, bt, vol):
+def test_volume_write(vcr, bt, level):
     with vcr.use_cassette("vol_write"):
-        bt.volume = vol
+        bt.volume = level
+
+
+@pytest.mark.parametrize("key, expected", [
+    ("targetbass", "0"),
+    ("actualbass", "0"),
+])
+def test_bass_read(vcr, bt, key, expected):
+    with vcr.use_cassette("bass_read"):
+        assert get(bt.bass, key) == expected
+
+
+@pytest.mark.parametrize("level", [
+    (-5,),
+    (0,),
+    (10,),
+])
+def test_bass_write(vcr, bt, level):
+    with vcr.use_cassette("bass_write"):
+        bt.bass = level
+
+
+@pytest.mark.parametrize("key, expected", [
+    ("bassAvailable", "true"),
+    ("bassMin", "-9"),
+    ("bassMax", "0"),
+    ("bassDefault", "0"),
+])
+def test_bass_capabilities(vcr, bt, key, expected):
+    with vcr.use_cassette("bass_capabilities"):
+        assert get(bt.bass_capabilities, key) == expected

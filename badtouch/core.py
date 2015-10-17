@@ -34,8 +34,20 @@ class BadTouch(object):
         return self._http.get("/volume")["volume"]
 
     @volume.setter
-    def volume(self, vol):
-        self._http.post("/volume", data="<volume>{}</volume>".format(vol))
+    def volume(self, level):
+        self._http.post("/volume", data="<volume>{}</volume>".format(level))
+
+    @property
+    def bass(self):
+        return self._http.get("/bass")["bass"]
+
+    @bass.setter
+    def bass(self, level):
+        self._http.post("/bass", data="<bass>{}</bass>".format(level))
+
+    @cached_property_with_ttl(ttl=60)
+    def bass_capabilities(self):
+        return self._http.get("/bassCapabilities")["bassCapabilities"]
 
     def select_key(self, key):
         return self.key.send_key(key)
