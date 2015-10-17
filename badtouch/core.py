@@ -4,8 +4,9 @@ import logging
 
 from cached_property import cached_property_with_ttl
 
+from .exceptions import BadTouchUnkownKeyException
 from .http import BadTouchHttp
-from .key import Key
+from .key import KEYS
 
 
 log = logging.getLogger(__name__)
@@ -15,7 +16,6 @@ class BadTouch(object):
     def __init__(self, device, http=BadTouchHttp):
         self._device = device
         self._http = http(base_url="http://{}:8090".format(self._device))
-        self.key = Key(self)
 
     @cached_property_with_ttl(ttl=5 * 60)
     def info(self):
@@ -53,5 +53,17 @@ class BadTouch(object):
     def sources(self):
         return self._http.get("/sources")["sources"]["sourceItem"]
 
-    def select_key(self, key):
-        return self.key.send_key(key)
+    @property
+    def key(self):
+        raise BadTouchUnkownKeyException()
+
+    @key.setter
+    def key(self, button):
+        button = button.upper()
+        if button not in KEYS:
+            raise BadTouchUnkownKeyException()
+
+        log.debug("press {}".format(button))
+        self._http.post("/key", data="<key state='press' sender='Gabbo'>{}</key>".format(button))
+        log.debug("release {}".format(button))
+        self._http.post("/key", data="<key state='release' sender='Gabbo'>{}</key>".format(button))
