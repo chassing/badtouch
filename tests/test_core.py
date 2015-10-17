@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
+from dpath.util import get
 
 
 @pytest.mark.parametrize("key, expected", [
@@ -11,4 +12,4 @@ import pytest
 ])
 def test_info(vcr, bt, key, expected):
     with vcr.use_cassette("info"):
-        assert bt.info[key] == expected
+        assert get(bt.info, key) == expected
