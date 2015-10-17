@@ -1,0 +1,26 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://bose-portable.local:8090/now_playing
+  response:
+    body: {string: '<?xml version="1.0" encoding="UTF-8" ?><nowPlaying deviceID="000C8A8A33FD"
+        source="INTERNET_RADIO"><ContentItem source="INTERNET_RADIO" location="13771"
+        sourceAccount="" isPresetable="true"><itemName>Antenne Bayern</itemName></ContentItem><track></track><artist></artist><album></album><stationName>Antenne
+        Bayern</stationName><art artImageStatus="IMAGE_PRESENT">http://logo.vtuner.net/007452/logo/logo-13771.jpg</art><playStatus>PLAY_STATE</playStatus><description>MP3  128
+        kbps  Ismaning Germany,  Wir lieben Bayern. Wir lieben die Hits.</description><stationLocation>Ismaning
+        Germany</stationLocation></nowPlaying>'}
+    headers:
+      Cache-Control: ['no-cache,must-revalidate']
+      Connection: [close]
+      Content-Type: [text/xml]
+      Date: ['Sat, 17 Oct 2015 14:11:13 GMT']
+      Expires: ['Thu, 26 Oct 1995 00:00:00 GMT']
+      Server: [Allegro-Software-RomPager/5.40b1]
+    status: {code: 200, message: OK}
+version: 1

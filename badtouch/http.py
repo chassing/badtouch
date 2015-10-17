@@ -9,7 +9,7 @@ class BadTouchHttp(object):
         self._base_url = base_url
 
     def _resp2dict(self, response):
-        return xmltodict.parse(response.text)
+        return xmltodict.parse(response.text, encoding="utf-8")
 
     def get(self, path):
         return self._resp2dict(requests.get(self._base_url + path))

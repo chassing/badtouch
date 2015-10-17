@@ -13,3 +13,7 @@ class BadTouch(object):
     @cached_property_with_ttl(ttl=5 * 60)
     def info(self):
         return self._http.get("/info")["info"]
+
+    @property
+    def now_playing(self):
+        return self._http.get("/now_playing")["nowPlaying"]
