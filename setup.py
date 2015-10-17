@@ -3,8 +3,6 @@
 import codecs
 from setuptools import setup, find_packages
 
-import badtouch as distmeta
-
 
 install_requires = open("requirements.txt").readlines()
 test_requires = []
@@ -17,12 +15,12 @@ long_description = codecs.open('README.rst', "r", "utf-8").read()
 
 setup(
     name='badtouch',
-    version=distmeta.__version__,
+    version="0.1",
     description='A friendly python library for the Bose SoundTouch (R) API',
     long_description=long_description,
-    author=distmeta.__author__,
-    author_email=distmeta.__contact__,
-    url=distmeta.__homepage__,
+    author="Christian Assing",
+    author_email="chris@ca-net.org",
+    url="http://github.com/chassing/badtouch/",
     packages=find_packages(),
     include_package_data=True,
     install_requires=install_requires,
