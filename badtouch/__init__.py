@@ -1,4 +1,17 @@
+# -*- coding: utf-8 -*-
 
 from .core import BadTouch
+from .key import KEYS
+from .key import PLAY, PAUSE, STOP, PREV_TRACK, NEXT_TRACK, THUMBS_UP, THUMBS_DOWN
+from .key import BOOKMARK, POWER, MUTE, VOLUME_UP, VOLUME_DOWN
+from .key import PRESET_1, PRESET_2, PRESET_3, PRESET_4, PRESET_5, PRESET_6
+from .key import AUX_INPUT, SHUFFLE_OFF, SHUFFLE_ON, REPEAT_OFF, REPEAT_ONE, REPEAT_ALL
+from .key import PLAY_PAUSE, ADD_FAVORITE, REMOVE_FAVORITE
 
-__all__ = ["BadTouch"]
+__all__ = [
+    "BadTouch", "KEYS",
+    "PLAY", "PAUSE", "STOP", "PREV_TRACK", "NEXT_TRACK", "THUMBS_UP", "THUMBS_DOWN", "BOOKMARK", "POWER",
+    "MUTE", "VOLUME_UP", "VOLUME_DOWN",
+    "PRESET_1", "PRESET_2", "PRESET_3", "PRESET_4", "PRESET_5", "PRESET_6", "AUX_INPUT", "SHUFFLE_OFF", "SHUFFLE_ON",
+    "REPEAT_OFF", "REPEAT_ONE", "REPEAT_ALL", "PLAY_PAUSE", "ADD_FAVORITE", "REMOVE_FAVORITE"
+]

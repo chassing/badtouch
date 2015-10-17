@@ -11,6 +11,12 @@ import vcr as vcrpy
 
 from badtouch import BadTouch
 
+# setup logging
+import logging
+logging.basicConfig()
+logging.getLogger("vcr").setLevel(logging.INFO)
+logging.getLogger("badtouch").setLevel(logging.DEBUG)
+
 
 @pytest.fixture
 def vcr():

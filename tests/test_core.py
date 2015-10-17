@@ -3,6 +3,9 @@
 import pytest
 from dpath.util import get
 
+from badtouch import KEYS
+from badtouch.exceptions import BadTouchUnkownKeyException
+
 
 @pytest.mark.parametrize("key, expected", [
     ("@deviceID", "000C8A8A33FD"),
@@ -39,3 +42,15 @@ def test_now_playing_antenne_is_playing(vcr, bt, key, expected):
 def test_now_playing_nothing_is_playing(vcr, bt, key, expected):
     with vcr.use_cassette("nothing_is_playing"):
         assert get(bt.now_playing, key) == expected
+
+
+@pytest.mark.parametrize("key, expected", zip(KEYS, len(KEYS) * [{'status': '/key'}]))
+def test_select_key(vcr, bt, key, expected):
+    with vcr.use_cassette("select_key"):
+        assert bt.select_key(key) == expected
+
+
+def test_select_key_unknown_key(bt):
+    with pytest.raises(BadTouchUnkownKeyException):
+        bt.select_key("DOES_NOT_EXISTS")
+
