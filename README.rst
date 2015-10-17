@@ -22,7 +22,7 @@ To install badtouch python library, simply: ::
 Quick Start
 -----------
 
-Connect to your Bose SoundTouch (R) device and retrieve basic device information:
+Connect to your Bose SoundTouch (R) device and retrieve basic device information: ::
 
     from badtouch import BadTouch
 
