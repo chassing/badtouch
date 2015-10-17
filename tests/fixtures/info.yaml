@@ -1,0 +1,26 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://bose-portable.local:8090/info
+  response:
+    body: {string: '<?xml version="1.0" encoding="UTF-8" ?><info deviceID="000C8A8A33FD"><name>Bose
+        Portable</name><type>SoundTouch Portable</type><margeAccountUUID>2842201</margeAccountUUID><components><component><componentCategory>SCM</componentCategory><softwareVersion>7.2.37.19575.1125106
+        epdbuild.rel_7.2.x.hepdswbld05.2015-02-21T07:46:14</softwareVersion><serialNumber>K3275154703625125000110</serialNumber></component><component><componentCategory>PackagedProduct</componentCategory><serialNumber>060713932770994AE</serialNumber></component><component><componentCategory>Lightswitch</componentCategory><serialNumber></serialNumber></component><component><componentCategory>SMSC</componentCategory><softwareVersion>I2014101420409423;
+        B201306111041 081008C 2014101420409423</softwareVersion><serialNumber>000C8A8A3407</serialNumber></component></components><margeURL>https://streaming.bose.com</margeURL><networkInfo
+        type="SCM"><macAddress>000C8A8A33FD</macAddress><ipAddress>192.168.1.111</ipAddress></networkInfo><networkInfo
+        type="SMSC"><macAddress>000C8A8A3407</macAddress><ipAddress>192.168.1.111</ipAddress></networkInfo></info>'}
+    headers:
+      Cache-Control: ['no-cache,must-revalidate']
+      Connection: [close]
+      Content-Type: [text/xml]
+      Date: ['Sat, 17 Oct 2015 12:28:22 GMT']
+      Expires: ['Thu, 26 Oct 1995 00:00:00 GMT']
+      Server: [Allegro-Software-RomPager/5.40b1]
+    status: {code: 200, message: OK}
+version: 1
