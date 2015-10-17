@@ -25,5 +25,9 @@ class BadTouch(object):
     def now_playing(self):
         return self._http.get("/now_playing")["nowPlaying"]
 
+    @cached_property_with_ttl(ttl=60)
+    def presets(self):
+        return self._http.get("/presets")["presets"]["preset"]
+
     def select_key(self, key):
         return self.key.send_key(key)

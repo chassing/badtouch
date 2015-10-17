@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://bose-portable.local:8090/presets
+  response:
+    body: {string: '<?xml version="1.0" encoding="UTF-8" ?><presets><preset id="1"><ContentItem
+        source="INTERNET_RADIO" location="28754" sourceAccount="" isPresetable="true"><itemName>radio
+        TOP 40 Electro</itemName></ContentItem></preset><preset id="2"><ContentItem
+        source="INTERNET_RADIO" location="6816" sourceAccount="" isPresetable="true"><itemName>radio
+        TOP 40 96.6 FM</itemName></ContentItem></preset><preset id="3"><ContentItem
+        source="INTERNET_RADIO" location="21181" sourceAccount="" isPresetable="true"><itemName>Antenne
+        K</itemName></ContentItem></preset><preset id="4" createdOn="1429354555" updatedOn="1429354555"><ContentItem
+        source="INTERNET_RADIO" location="13771" sourceAccount="" isPresetable="true"><itemName>Antenne
+        Bayern</itemName></ContentItem></preset><preset id="5"><ContentItem source="INTERNET_RADIO"
+        location="18298" sourceAccount="" isPresetable="true"><itemName>ORF Hitradio</itemName></ContentItem></preset><preset
+        id="6"><ContentItem source="INTERNET_RADIO" location="8000" sourceAccount=""
+        isPresetable="true"><itemName>Klassik Radio 98.1 FM</itemName></ContentItem></preset></presets>'}
+    headers:
+      Cache-Control: ['no-cache,must-revalidate']
+      Connection: [close]
+      Content-Type: [text/xml]
+      Date: ['Sat, 17 Oct 2015 16:15:14 GMT']
+      Expires: ['Thu, 26 Oct 1995 00:00:00 GMT']
+      Server: [Allegro-Software-RomPager/5.40b1]
+    status: {code: 200, message: OK}
+version: 1

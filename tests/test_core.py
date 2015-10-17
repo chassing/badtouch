@@ -54,3 +54,17 @@ def test_select_key_unknown_key(bt):
     with pytest.raises(BadTouchUnkownKeyException):
         bt.select_key("DOES_NOT_EXISTS")
 
+
+@pytest.mark.parametrize("key, expected", [
+    ("@id", "1"),
+    ("ContentItem/@source", "INTERNET_RADIO"),
+    ("ContentItem/@location", "28754"),
+    ("ContentItem/@sourceAccount", ""),
+    ("ContentItem/@isPresetable", "true"),
+    ("ContentItem/itemName", "radio TOP 40 Electro"),
+])
+def test_presets(vcr, bt, key, expected):
+    with vcr.use_cassette("presets"):
+        assert len(bt.presets) == 6
+        p = bt.presets[0]
+        assert get(p, key) == expected
